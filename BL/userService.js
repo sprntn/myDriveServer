@@ -2,13 +2,10 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-//const users = require('../DL/users')
 const users = require('../DATA/users')
-//const fileService = require('./fileService')
-//console.log(users)
 
 async function addUser(user){
-    console.log("user service - add user");
+    
     if(!user){
         throw new Error("not a valid user")
     }

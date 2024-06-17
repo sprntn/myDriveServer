@@ -17,9 +17,9 @@ const verifyToken = (req, res, next) => {
         return res.status(401).json({ message: 'invalid token' });
     }
     const email = decoded.email
-    console.log("email from token", email)
+    
     req.email = email
-    //req.token = token; // Store the token in the request object for later use
+    
     next();
 }
 

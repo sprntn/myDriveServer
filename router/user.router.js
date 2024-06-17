@@ -2,7 +2,6 @@ const
     express = require('express'),
     router = express.Router()
 
-//const fileService = require('../BL/fileService')
 const userService = require('../BL/userService')
 const loginService = require('../BL/loginService')
 
@@ -11,8 +10,7 @@ router.get('/test', (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
-    console.log("user.router - add user");
-    console.log(req.body)
+    
     try {
         const user = await userService.addUser(req.body)
         res.send(user)
@@ -22,7 +20,6 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    console.log("login.router - login")
     try {
         const {email, password} = req.body
         const user = {email, password};
@@ -31,8 +28,7 @@ router.post('/', async (req, res) => {
         }
         const token = await loginService.login(user)
         if(token){
-            //res.send(loginToken)
-            console.log("token:", token)
+            
             res.json({ token });
         }
         else{
